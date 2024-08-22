@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/dela-gothic-one": "^5.0.20",
+    "@fontsource/libre-baskerville": "^5.0.14",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "astro": "^4.14.2"

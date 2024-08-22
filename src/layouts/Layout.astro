@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import '@fontsource/dela-gothic-one';
+import '@fontsource/libre-baskerville';
 ---
 
 <!doctype html>
@@ -22,28 +24,31 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--clr-black: #242423;
+		--clr-gray: #333533;
+		--clr-ylw: #F5CB5C;
+		--clr-acc-ylw: #F4C544;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+img {
+	display: block;
+}
+
+h1,h2,h3 {
+  font-family: 'Dela Gothic One', system-ui;
+}
+
+h1 {
+	color: #E8EDDF;
+}
+
+p, a, span {
+	font-family: 'Libre Baskerville', serif;
+}
 </style>

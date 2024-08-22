@@ -80,19 +80,23 @@ import Hessam from '../images/hessam-nabavi.jpg';
 
 <style>
 	header {
-		background-color: black;
+		background-color: var(--clr-black);
 	}
 
+	.hero, .about {
+		background-color: var(--clr-black);
+	}
 
-
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
+	.about h2, p {
 		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+	}
+
+	.cta, .price, .staffs, footer {
+		background-color: var(--clr-ylw);
+	}
+
+	:is(.cta, .price, .staffs, footer) {
+		color: var(--clr-black);
 	}
 
 	.social-link svg {
