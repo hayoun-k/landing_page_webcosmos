@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import Colton from '../images/colton-sturgeon.jpg';
+import Giorgio from '../images/giorgio.jpg';
+import Hessam from '../images/hessam-nabavi.jpg';
+
+interface Props {
+  profile: any;
+  name: string;
+  title: string;
+}
+
+const { profile, name, title } = Astro.props;
+---
+
+<li class="staff">
+  <Image src={profile} alt=`Profile picture of ${name}` class="profile-img" />
+  <p>{name}</p>
+  <p>{title}</p>
+</li>
+
+<style>
+  .profile-img {
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1 / 1;
+    display: block;
+  }
+</style>

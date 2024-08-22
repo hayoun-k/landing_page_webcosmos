@@ -1,0 +1,29 @@
+---
+interface Props {
+	name: string;
+	price: string;
+	desc: string[];
+}
+
+const { name, price, desc } = Astro.props;
+---
+
+<li class="pricing-card">
+	<h2>
+		{name}
+		<span>&rarr;</span>
+	</h2>
+	<h3>{price}</h3>
+	<ul>
+		<li>{desc[0]}</li>
+		<li>{desc[1]}</li>
+		<li>{desc[2]}</li>
+		<li>{desc[3]}</li>
+	</ul>
+	<a href="#" class="btn">Get Started</a>
+</li>
+<style>
+.pricing-card {
+	background-color: #F4C544;
+}
+</style>
