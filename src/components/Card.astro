@@ -6,24 +6,63 @@ interface Props {
 }
 
 const { name, price, desc } = Astro.props;
+const Check = `<svg xmlns="http://www.w3.org/2000/svg" style="max-height: 100%;" viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
 ---
 
 <li class="pricing-card">
 	<h2>
 		{name}
-		<span>&rarr;</span>
+		<!-- <span>&rarr;</span> -->
 	</h2>
 	<h3>{price}</h3>
 	<ul>
-		<li>{desc[0]}</li>
-		<li>{desc[1]}</li>
-		<li>{desc[2]}</li>
-		<li>{desc[3]}</li>
+		<li><div class="checkmark" set:html={Check}></div>{desc[0]}</li>
+		<li><div class="checkmark" set:html={Check}></div>{desc[1]}</li>
+		<li><div class="checkmark" set:html={Check}></div>{desc[2]}</li>
+		<li><div class="checkmark" set:html={Check}></div>{desc[3]}</li>
 	</ul>
 	<a href="#" class="btn">Get Started</a>
 </li>
 <style>
 .pricing-card {
+	padding: 40px;
 	background-color: #F4C544;
+	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+h2 {
+	font-family: 'Libre Baskerville', serif;
+	font-size: 0.875rem;
+	font-weight: 400;
+
+}
+
+h3 {
+	font-size: 40px;
+	line-height: 1;
+	color: var(--clr-black);
+}
+
+ul {
+	padding-block: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+li {
+	font-size: 0.875rem;
+	display: flex;
+	gap: 10px;
+	flex-wrap: nowrap;
+}
+
+.checkmark {
+	width: auto;
+	height: 15px;
+	aspect-ratio: 1 / 1 ;
 }
 </style>

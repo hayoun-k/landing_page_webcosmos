@@ -5,6 +5,10 @@ import Staff from '../components/Staff.astro';
 import Colton from '../images/colton-sturgeon.jpg';
 import Giorgio from '../images/giorgio.jpg';
 import Hessam from '../images/hessam-nabavi.jpg';
+import Astronaut from '../images/astronaut.avif';
+import Buildings from '../images/buildings.avif';
+import Sky from '../images/sky.avif';
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="WebCosmos">
@@ -26,34 +30,45 @@ import Hessam from '../images/hessam-nabavi.jpg';
 		</section>
 		<section class="about">
 			<div class="container">
-				<img src="" alt="">
+				<Image src={Astronaut} alt='astronaut image' />
 				<div class="text-container">
 					<h2>Unleash your brand’s true potential with our services</h2>
 					<p>Our mission can’t be achieved without empowering your journey. Let’s build this spaceship together and command your industry one byte at a time.</p>
 				</div>
+			</div>
+			<div class="container">
 				<div class="text-container">
 					<h2>Creative Solutions Tailored to your unique Needs</h2>
 					<p>We're not just a web agency, we're your technical co-founders. Expect the unexpected because we’re ready to execute with finesse.</p>
 				</div>
-				<img src="" alt="">
+				<Image src={Buildings} alt='building image' />
 			</div>
 		</section>
 		<section class="cta">
-			<h2>Ready to launch? So are we.</h2>
-			<div class="button-container">
-				<a href="#" class="btn">Contact Us</a>
-				<a href="#" class="btn">Our Portfolio</a>
+			<div class="cta-container">
+				<h2>Ready to launch? So are we.</h2>
+				<div class="button-container">
+					<a href="#" class="btn primary">Contact Us</a>
+					<a href="#" class="btn">Our Portfolio</a>
+				</div>
 			</div>
 		</section>
 		<section class="price">
-			<Card name="Saturn" price="$19.99/mo" desc={["pages", "setup", "analytics", "support"]} />
-			<Card name="Jupiter" price="$29.99/mo" desc={["Unlimited Pages", "Premium SEO", "Pro Analytics", "Priority Support"]}/>
+			<ul class="card-list">
+				<Card name="Saturn" price="$19.99/mo" desc={["10 Pages", "SEO Setup", "Analytics", "Support"]} />
+				<Card name="Jupiter" price="$29.99/mo" desc={["Unlimited Pages", "Premium SEO", "Pro Analytics", "Priority Support"]}/>
+			</ul>
 		</section>
-		<section>
+		<section class="quote">
 			<h2>A journey beyond the stars.</h2>
+			<Image src={Sky} alt='image of sky' class="quote-bg" />
 		</section>
 		<section class="staffs">
-			<Staff profile={Colton} name='Colton' title='dev'/>
+			<div class="staff-container">
+				<Staff profile={Colton} name='Colton' title='Web Developer'/>
+				<Staff profile={Giorgio} name='Giorgio' title='Designer'/>
+				<Staff profile={Hessam} name='Hessam' title='Project Manager'/>
+		</div>
 		</section>
 	</main>
 	<footer>
@@ -79,16 +94,76 @@ import Hessam from '../images/hessam-nabavi.jpg';
 </Layout>
 
 <style>
+	header,section,footer {
+		padding-inline: 8.33%;
+		padding-block: 100px;
+	}
+
 	header {
+		padding-block: 100px;
 		background-color: var(--clr-black);
+		color: #E8EDDF;
+	}
+
+	.header-nav {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.nav-item a {
+		line-height: 1.2;
 	}
 
 	.hero, .about {
 		background-color: var(--clr-black);
 	}
 
+	.hero {
+		padding-top: 300px;
+	}
+
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 60px;
+		align-items: center;
+	}
+
+	.about .container {
+		max-width: 1000px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 60px;
+	}
+
+	.about .text-container {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		align-self: center;
+	}
+
 	.about h2, p {
 		color: white;
+	}
+
+	.about h2 {
+		font-size: 2rem;
+		line-height: 1.2;
+	}
+
+	.about p {
+		line-height: 1.5;
+	}
+
+	.about img {
+		width: auto;
+		height: 480px;
+		aspect-ratio: 1 / 1 ;
+		object-fit: cover;
+		filter: grayscale(100%);
+		mix-blend-mode: luminosity;
+		border-radius: 40px;
 	}
 
 	.cta, .price, .staffs, footer {
@@ -97,6 +172,85 @@ import Hessam from '../images/hessam-nabavi.jpg';
 
 	:is(.cta, .price, .staffs, footer) {
 		color: var(--clr-black);
+	}
+
+	.cta-container {
+		max-width: 1000px;
+		margin: auto;
+	}
+
+	.cta h2 {
+		font-size: 3rem;
+		margin-bottom: 40px;
+	}
+
+	.cta .button-container {
+		display: flex;
+		column-gap: 15px;
+	}
+
+	.price .card-list {
+		max-width: 1000px;
+		margin: auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 20px;
+	}
+
+	.quote {
+		height: 800px;
+		background-color: var(--clr-black);
+		position: relative;
+		mix-blend-mode: luminosity;
+		overflow: hidden;
+		display: flex;
+	}
+
+	.quote h2 {
+		max-width: 1000px;
+		margin: auto;
+		color: white;
+		font-size: 5rem;
+		line-height: 1.1;
+		text-align: center;
+		position: relative;
+		z-index: 2;
+	}
+
+	.quote-bg {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center center;
+		opacity: 0.3;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.staff-container {
+		max-width: 1000px;
+		margin: auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+
+	footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.social-links {
+		margin-bottom: 30px;
+		display: flex;
+		gap: 20px;
+	}
+
+	.social-links li {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.social-link svg {
