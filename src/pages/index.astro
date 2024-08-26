@@ -257,4 +257,44 @@ import { Image } from 'astro:assets';
 		width: 25px;
 		
 	}
+
+	@media screen and (width < 425px) {
+		header, section, footer {
+			padding-inline: 5%;
+		}
+
+		header {
+			padding-top: 50px;
+		}
+
+		.hero {
+			padding-top: 200px;
+		}
+
+		.about .container {
+			grid-template-columns: 1fr;
+		}
+
+		.about img {
+			width: 100%;
+			height: auto;
+		}
+
+		.cta h2 {
+			font-size: 2rem;
+		}
+
+		.cta .button-container {
+			display: grid;
+			gap: 20px;
+		}
+
+		.quote {
+			height: 300px;
+		}
+
+		.quote h2 {
+			font-size: 2rem;
+		}
+	}
 </style>
