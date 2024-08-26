@@ -8,6 +8,7 @@ import Hessam from '../images/hessam-nabavi.jpg';
 import Astronaut from '../images/astronaut.avif';
 import Buildings from '../images/buildings.avif';
 import Sky from '../images/sky.avif';
+import Logo from '../images/logo.webp';
 import { Image } from 'astro:assets';
 ---
 
@@ -15,8 +16,8 @@ import { Image } from 'astro:assets';
 	<header>
 		<ul class="header-nav">
 			<li class="nav-item">
-				<div class="logo">
-					<a href="#">O</a>
+				<div class="logo-container">
+					<a href="#"><Image src={Logo} alt="logo" id='logo'/></a>
 				</div>
 			</li>
 			<li class="nav-item"><a href="#">Home</a></li>
@@ -110,8 +111,19 @@ import { Image } from 'astro:assets';
 		justify-content: space-between;
 	}
 
+	.nav-item {
+		display: flex;
+		align-items: center;
+	}
+
 	.nav-item a {
 		line-height: 1.2;
+		display: block;
+	}
+
+	#logo {
+		width: auto;
+		max-height: 40px;
 	}
 
 	.hero, .about {
